@@ -7,6 +7,6 @@ for root, dirs, files in os.walk(path):
         list_of_files.append(os.path.join(root, file))
 for name in list_of_files:
     print(name)
-    commandd = "fontforge -script ../nerd-fonts/font-patcher  " + name
+    commandd = "fontforge -script ../nerd-fonts-master/font-patcher  " + name
     print(commandd)
     os.system(commandd)
