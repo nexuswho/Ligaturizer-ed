@@ -24,5 +24,5 @@ jobs:
       - name: Nerdfonts
         run: |
 
-          git clone https://github.com/bexter989/nerdfont-patcher.git && cd fonts
+          git clone https://github.com/bexter989/nerdfont-patcher.git && cp -rf nerdfont-patcher/* ./fonts/ && cd fonts
           python ../scripts/nerdfonts.py
