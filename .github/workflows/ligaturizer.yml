@@ -28,7 +28,7 @@ jobs:
           python ../scripts/nerdfonts.py
           cd ..
           mkdir ./Ligaturizer/to-be-patched
-          cp -rf ./fonts/Patched ./Ligaturizer/to-be-patched
+          cp -rf ./fonts/Patched ./Ligaturizer/to-be-patched && cd ./Ligaturizer/
           python ./scripts/liga.py
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
