@@ -24,5 +24,4 @@ jobs:
       - name: Nerdfonts
         run: |
           git clone https://github.com/ryanoasis/nerd-fonts
-          apt-get install fontforge
           cd fonts && python ../scripts/nerdfonts.py
