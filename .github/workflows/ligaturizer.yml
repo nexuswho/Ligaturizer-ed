@@ -23,12 +23,11 @@ jobs:
 
       - name: Patching
         run: |
-
           git clone https://github.com/ToxicFrog/Ligaturizer
           git clone https://github.com/bexter989/nerdfont-patcher.git && cp -rf nerdfont-patcher/* ./fonts/ && cd fonts
           python ../scripts/nerdfonts.py && cd ../Ligaturizer
           python ../scripts/copier.py
-          tree .
+          python liga.py
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
