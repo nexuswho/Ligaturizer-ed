@@ -16,8 +16,8 @@ jobs:
 
       - name: Install requirements
         run: |
+
           sudo apt-get install software-properties-common
-          sudo add-apt-repository ppa:fontforge/fontforge -y
           sudo apt-get update
           sudo apt-get install fontforge
           sudo apt-get install python3-fontforge python-configparser
