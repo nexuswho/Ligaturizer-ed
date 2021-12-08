@@ -1,6 +1,6 @@
 name: scraper-san-juan-gobierno
 
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   build:
@@ -16,29 +16,14 @@ jobs:
 
       - name: Install requirements
         run: |
-          python -m pip install --upgrade pip
-          sudo apt update
-          sudo apt-get install python3-fontforge wget
-
-      - name: Cache
-        id: caching
-        uses: actions/cache@v2
-        env:
-          cache-name: cacher
-        with:
-          path: ./nerd-fonts-master
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Download nerdfonts
-        if: steps.myCacheStep.outputs.cache-hit != 'true'
-        run: |
-          wget https://github.com/ryanoasis/nerd-fonts/archive/refs/heads/master.zip
-          unzip master.zip
+          sudo apt-get install software-properties-common
+          sudo add-apt-repository ppa:fontforge/fontforge -y
+          sudo apt-get update
+          sudo apt-get install fontforge
+          sudo apt-get install python3-fontforge python-configparser
 
       - name: Nerdfonts
         run: |
-          cd fonts && python ../scripts/nerdfonts.py
+
+          git clone https://github.com/bexter989/nerdfont-patcher.git && cd fonts
+          python ../scripts/nerdfonts.py
