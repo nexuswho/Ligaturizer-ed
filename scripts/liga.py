@@ -1,8 +1,8 @@
 import os
 
-for root, dirs, files in os.walk(os.path.abspath("./fonts/")):
+for root, dirs, files in os.walk(os.path.abspath("./to-be-patched/")):
     for file in files:
-        files = (os.path.join(root, file))
+        filee = (os.path.join(root, file))
         print(dirs)
         commannd = "fontforge -lang py -script ligaturize.py" + \
-            files + "--output-dir = ../final - -output-name = Liga"
+            filee + "--output-dir = ../final - -output-name = Liga"
