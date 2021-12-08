@@ -1,5 +1,5 @@
 import os
-
+os.system("ls -la")
 for root, dirs, files in os.walk(os.path.abspath("./to-be-patched/")):
     for file in files:
         filee = (os.path.join(root, file))
