@@ -5,8 +5,8 @@ for root, dirs, files in os.walk(os.path.abspath("./to-be-patched/")):
         filee = (os.path.join(root, file))
         filles = f'"{filee}"'
         print(filles)
-        file = f'"{file}"'
+        fileeee = f'"{file}"'
         print(file)
         commannd = "fontforge -lang py -script ligaturize.py " + \
-            filles + " --output-dir = ../final - -output-name=" + file
+            filles + " --output-dir=../final --output-name=" + fileeee
         os.system(commannd)
